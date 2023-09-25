@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo';
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -9,8 +10,30 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const SEO = {
+    title: 'Jogue Xadrez Online - Chess Online',
+    description: 'Jogue xadrez online com outros jogadores em Chess Online. Registre-se ou faça login para começar a jogar xadrez em tempo real.',
+    // canonical: 'https://seusite.com/', // Substitua pelo URL real do seu site
+    openGraph: {
+      type: 'website',
+      locale: 'pt_BR',
+      // url: 'https://seusite.com/', // Substitua pelo URL real do seu site
+      title: 'Jogue Xadrez Online - Chess Online',
+      description: 'Jogue xadrez online com outros jogadores em Chess Online. Registre-se ou faça login para começar a jogar xadrez em tempo real.',
+      site_name: 'Chess Online',
+      images: [
+        {
+          // url: 'https://seusite.com/standardboard.1d6f9426.png', // Substitua pelo URL da imagem de capa do seu site
+          alt: 'Xadrez Online - Chess Online',
+        },
+      ],
+    },
+  };
+
   return (
     <html lang="en">
+      <NextSeo {...SEO} />
+
       <body className={inter.className}>{children}</body>
     </html>
   )
